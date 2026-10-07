@@ -1,0 +1,68 @@
+{
+    "dataset_statistics": {
+        "total_transactions": 284807,
+        "legitimate_count": 284315,
+        "fraud_count": 492,
+        "fraud_percentage": 0.1727485630620034,
+        "imbalance_ratio": 577.8760162601626
+    },
+    "supervised_lightgbm": {
+        "pr_auc": 0.8496493999522193,
+        "roc_auc": 0.9743862234131563,
+        "precision_at_0_5": 0.5898876404494382,
+        "recall_at_0_5": 0.8536585365853658,
+        "f1_at_0_5": 0.6976744186046511,
+        "confusion_matrix": {
+            "TN": 71006,
+            "FP": 73,
+            "FN": 18,
+            "TP": 105
+        }
+    },
+    "unsupervised_isolation_forest": {
+        "pr_auc": 0.2354765264815597,
+        "roc_auc": 0.9453578332685366,
+        "precision_at_0_5": 0.3130434782608696,
+        "recall_at_0_5": 0.2926829268292683,
+        "f1_at_0_5": 0.3025210084033613,
+        "confusion_matrix": {
+            "TN": 71000,
+            "FP": 79,
+            "FN": 87,
+            "TP": 36
+        }
+    },
+    "cost_optimization": {
+        "cost_fp": 10.0,
+        "cost_fn": 150.0,
+        "optimal_threshold": 0.6551256281407035,
+        "optimal_loss": 3010.0,
+        "default_loss": 3430.0,
+        "dollar_savings": 420.0,
+        "percentage_savings": 12.244897959183673
+    },
+    "drift_monitoring_alert": {
+        "alert_status": "RETRAIN_ALERT",
+        "retrain_flag": true,
+        "reasons": [
+            "6/30 features (20.0%) exhibit critical drift exceeding boundary of 15%",
+            "Feature 'hour_of_day' suffered extreme drift (PSI = 9.098)"
+        ],
+        "summary": {
+            "total_features": 30,
+            "critical_drift_features": 6,
+            "warning_drift_features": 9,
+            "prediction_psi": 0.03245988731001265
+        }
+    },
+    "bonus_artificial_drift_experiment": {
+        "clean_stream_alert": "RETRAIN_ALERT",
+        "drifted_stream_alert": "RETRAIN_ALERT",
+        "retrain_triggered": true,
+        "triggers": [
+            "Model prediction probability distribution shifted critically (PSI = 0.843 >= 0.25)",
+            "10/30 features (33.3%) exhibit critical drift exceeding boundary of 15%",
+            "Feature 'hour_of_day' suffered extreme drift (PSI = 9.098)"
+        ]
+    }
+}
